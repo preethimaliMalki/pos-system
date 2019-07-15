@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="js/semantic.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/customerStyle.css">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" id="header" >
+                <div class="row">
+                    <div class="col-md-3">
+                        <div id="title" >POS System</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="nav-item" >Home</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="nav-item" >AboutUS</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="nav-item" >services</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="log-out" ><button class="ui blue button">Log Out</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<aside >
+    <div class="row">
+        <div class="col-md-2" >
+            <div class="row">
+                <div>
+                    <div id="admin" class="item">
+                        <img src="images/admin.jpg" alt="" id="img-admin">
+                        <lable id="label-admin">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdmin User</lable>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aside_one">
+                    <div class="item"><label class="side-item"><a href="index.html" style="color: white">Dash Board</a></label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aside_one">
+                    <div class="item"><label class="side-item"><a href="customer.html" style="color: white;text-decoration: none"><i class="users"></i> Customer</a></label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aside_one">
+                    <div class="item"><label class="side-item"><a href="item.html" style="color: white"><i class="boxes"></i> Item</a></label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aside_one">
+                    <div class="item"><label class="side-item"> <i class="shopping-cart"></i>Order</label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aside_one">
+                    <div class="item"><label class="side-item"><i class="chart-line"></i> Report</label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="aside_one">
+                    <div class="item" style="height: 600px"><label class="side-item"></label></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10" style="background-color: #86cfda;margin-left: 0px">
+            <br><br>
+            <div class="container">
+                <h1 class="text-center">
+                    <button id="btnNewOrder" class="btn btn-success" style="margin-left: 200px;margin-bottom:10px;padding: 12px;width: 170px;background-color: #6f42c1;margin-top: 15px"><i class="fas fa-plus"></i> New Order</button>
+                </h1>
+                <div class="row">
+                    <div id="col1" class="col-md-4">
+                        <div id="order-details" class="alert alert-warning" style="margin-top:20px;font-size: 16px;font-weight: bold;color: black;background-color:whitesmoke;padding: 17px ">
+                            <div>Order ID: <label id="lblOrderId"></label></div>
+                            <div>Order Date: <label id="lblOrderDate"></label></div>
+                        </div>
+                        <div class="alert alert-primary" style="font-size: 16px;color:black;font-weight: bold;padding: 16px">
+                            <div class="form-group" >
+                                Customer ID:
+                                <select id="cmbCustomerID" class="form-control">
+                                    <option selected disabled hidden value="" >Select Customer ID</option>
+                                </select>
+                            </div>
+                            <div>Customer Name: <label id="lblCustomerName"></label></div>
+                        </div>
+                        <div id="item-container" class="alert alert-dark" style="background-color:#1f88be;padding: 17px;font-size: 16px;color: black;font-weight: bold">
+                            <div class="form-group">
+                                Item Code:
+                                <select id="cmbItemCode" class="form-control">
+                                    <option selected disabled hidden value="">Select Item Code</option>
+                                </select>
+                            </div>
+                            <div id="item-details">
+                                <div>Item Description: <label id="lblItemDescription"></label></div>
+                                <div>Unit Price: <label id="lblUnitPrice"></label></div>
+                                <div>Qty. On Hand: <label id="lblQtyOnHand"></label></div>
+                            </div>
+                            <div class="form-group">
+                                Qty.
+                                <input class="form-control" type="number" id="txtQty">
+                            </div>
+                            <div>
+                                <button id="btnAddCart" class="btn btn-warning" style="background-color:#9c6f04;border-color:#9c6f04;padding: 12px;width: 150px;font-size: 15px;color:whitesmoke;font-weight: bold"> <i class="fas fa-cart-plus"></i> Add to Cart</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="col2" class="col-md-8">
+                        <div class="alert alert-success" style="height: 500px">
+                            <div id="tblContainer" class="table-dark">
+                                <table id="tblOrderDetails" class="table table-hover table-dark">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">Item Code</th>
+                                        <th>Description</th>
+                                        <th class="text-right">Unit Price</th>
+                                        <th class="text-center">Qty</th>
+                                        <th class="text-right">Total</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <span id="spnTotal">Total: <label id="lblTotal">0.0</label></span>
+                                <button id="btnPlaceOrder" class="btn btn-primary" style="padding: 13px;width: 150px;background-color: #a71d2a;font-size: 16px;font-weight: bold;border-color: #a71d2a"> <i class="fas fa-cart-arrow-down"></i>
+                                    Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="text-center">Order Details</h3>
+                    </div>
+                    <table id="tblOrders" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Order ID</th>
+                            <th class="text-center">Order Date</th>
+                            <th class="text-center">Customer ID</th>
+                            <th>Customer Name</th>
+                            <th class="text-right">Order Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="footer"  >
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="btn-footer">
+                                <button class="ui facebook button">
+                                    <img src="images/fb.JPG" alt="" class="img-social">
+                                    Facebook
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-footer">
+                                <button class="ui youtube button">
+                                    <img src="images/ut.JPG" alt="" class="img-social">
+                                    YouTube
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-footer">
+                                <button class="ui twitter button">
+                                    <img src="images/tw.JPG" alt="" class="img-social">
+                                    Twitter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-footer">
+                                <button class="ui google plus button">
+                                    <img src="images/gl.JPG" alt="" class="img-social">
+                                    Google Plus
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-footer">
+                                <button class="ui linkedin button">
+                                    <img src="images/li.JPG" alt="" class="img-social">
+                                    LinkedIn
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-footer">
+                                <button class="ui linkedin button" id="whtapp">
+                                    <img src="images/wp.JPG" alt="" class="img-social">
+                                    WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</aside>
+
+<script src="js/date-formatter.js"></script>
+<script src="js/in-mem-db.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/order.js"></script>
+</body>
+</html>
